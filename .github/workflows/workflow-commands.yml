@@ -44,3 +44,10 @@ jobs:
       # Prevent sensitive information from appearing in logs, you can mask values
       - name: Masking value
         run: echo "::add-mask::${{ secrets.SECRET_VALUE }}"
+
+      # Secret Env example
+      - name: Use Secret as Env Variable
+        run: |
+          echo "secret value: $MY_SECRET"
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET}}
