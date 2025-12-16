@@ -5,6 +5,7 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
+      # Makes logs easier to read. You can group related messages together
       - name: "group logging"
         run: |
           echo "::group::My Group Message"
@@ -19,3 +20,27 @@ jobs:
       - name: "step 2"
         run: |
           echo $MY_VAL
+
+      # Set an environment variable that will be available to subsequent steps in the job
+      - name: Set Environment Variable
+        run: echo "ACTION_ENV=production" >> $GITHUB_ENV
+
+      # Add a directory to the system PATH for subsequent steps in your job
+      - name: Add directory to PATH
+        run: echo "/path/to/dir" >> $GITHUB_PATH
+
+      # Set outputs that can be used by other jobs in a multi-job workflow
+      - name: Set output
+        id: example_step
+        run: echo "result=output_value" >> $GITHUB_OUTPUT
+
+      - name: Use output
+        run: echo "The output was ${{ steps.example_step.outputs.result }}"
+
+      # Creating debugging messages that appear in the logs of your actions, which are only visible if you enable step debug logging
+      - name: Create debug message
+        run: echo "::debug::This is a debug message"
+
+      # Prevent sensitive information from appearing in logs, you can mask values
+      - name: Masking value
+        run: echo "::add-mask::${{ secrets.SECRET_VALUE }}"
