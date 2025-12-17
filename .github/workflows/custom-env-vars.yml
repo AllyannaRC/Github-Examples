@@ -1,0 +1,20 @@
+# Set Custom Env Vars
+# You can define Env vars inline with your Github Actions workflow
+name: Greeting on variable day
+
+on:
+  workflow_dispatch
+
+env: # Workflow-level - Set env vars of the entire workflow
+  DAY_OF_THE_WEEK: Monday
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env: # Job-level - Set env vars for the entire job
+      Greeting: Hello
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_THE_WEEK!" # Notice we are accessing env vars the native way for Linux
+        env: # Step-level - Set env vars for the step
+          First_Name: Mona
