@@ -1,6 +1,6 @@
 # Set Custom Env Vars
 # You can define Env vars inline with your Github Actions workflow
-name: Greeting on variable day
+name: Greeting on variable day - Custom Env Var
 
 on:
   workflow_dispatch
