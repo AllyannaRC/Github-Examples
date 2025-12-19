@@ -1,4 +1,4 @@
-# Set Custome Env Vars
+# Set Custom Env Vars
 name: Conditional Custom Env Variable
 
 on: workflow_dispatch
@@ -13,7 +13,7 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        if: ${{ env.DAY_OF_THE_WEEK == 'Monday' }}
+        if: ${{ env.DAY_OF_THE_WEEK == 'Monday' }} # We can also access env vars via the env context
         run: echo "$Greeting $First_Name. Today is $DAY_OF_THE_WEEK!"
         env:
           First_Name: Mona

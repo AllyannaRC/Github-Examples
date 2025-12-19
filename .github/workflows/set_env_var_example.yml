@@ -1,0 +1,22 @@
+# In Github Actions, you can dynamically set env vars during the execution of your workflows
+# using the $GITHUB_ENV special workflow command.
+
+# This is useful for passing values between steps, dynamically adjusting behaviour based on runtime data,
+# or configuring tools and scripts executed by your workflow.
+name: Set Environment Variables Example
+
+on: [push]
+
+jobs:
+  setup-and-use-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set dynamic environment variable
+        # Using workflow command to set an environment variable
+        run: | 
+          echo "DYNAMIC_VAR=Hello from Github Actions" >> $GITHUB_ENV
+
+      - name: Use the environment variable
+        # Using the environment variable in a subsequent step
+        run: |
+          echo "The value of DYNAMIC_VAR is: $DYNAMIC_VAR"
