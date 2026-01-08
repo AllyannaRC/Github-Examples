@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: omenking/barsoom@0.0.6
+        uses: AllyannaRC/custom-action-example@0.0.1
         with:
           name: 'Brown'
       # Use the output from the `hello` step

@@ -1,0 +1,15 @@
+name: Job Matrix
+
+jobs:
+  example_matrix:
+    strategy:
+      matrix:
+        version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest] # This will result in 6 job runs
+
+## {version: 10, os: ubuntu-latest}
+## {version: 10, os: windows-latest}
+## {version: 12, os: ubuntu-latest}
+## {version: 12, os: windows-latest}
+## {version: 14, os: ubuntu-latest}
+## {version: 14, os: windows-latest}

@@ -1,0 +1,14 @@
+name: 'My Docker Action'
+description: 'A description of what your action does'
+inputs:
+  my-input:
+    description: 'Input to use in the action'
+    required: true
+outputs:
+  my-output:
+    description: 'Outputs of the action'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.my-input }}

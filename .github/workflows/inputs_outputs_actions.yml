@@ -1,0 +1,32 @@
+name: Inputs and Outputs for Actions
+
+# Inputs: Specify data that the action expects to use during runtime
+inputs:
+  num-octocats:
+    description: 'Number of Octocats'
+    required: false
+    default: '1'
+  octocat-eye-color:
+    description: 'Eye color of the Octocats'
+    required: true
+
+# Outputs: Allows you to declare data that an action sets.
+# Actions that run later in a workflow can use the output data set in previously run actions.
+outputs:
+  sum: # id of the output
+    description: 'The sum of the inputs'
+
+# The “using” keyword determines whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
+runs:
+  using: 'node20'
+  main: 'main.js'
+
+sample_job:
+  steps: # Specific major
+    - uses: actions/javascript-action@v1
+
+  steps: # Specific major, minor and patch
+    - uses: actions/javascript-action@v1.0.1
+  
+  steps: # Specific branch
+    - uses: actions/javascript-action@v1-beta
