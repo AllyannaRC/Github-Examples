@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: AllyannaRC/custom-action-example@0.0.3
+        uses: AllyannaRC/custom-action-example@0.0.5
         with:
           name: 'Brown'
       # Use the output from the `hello` step
